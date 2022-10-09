@@ -3,6 +3,11 @@ internal class Habit_Tracker
 {
     private Database database = new Database();
 
+    internal Habit_Tracker()
+    {
+        database.CreateDatabase();
+    }
+
     internal void showMenu()
     {
         Console.Clear();
