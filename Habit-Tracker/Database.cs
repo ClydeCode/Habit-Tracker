@@ -60,7 +60,7 @@ class Database
 
                 while (reader.Read())
                 {
-                    result = ($"ID: {reader.GetString(0)}. DATE: {reader.GetString(1)} Quantity: {reader.GetString(2)}");
+                    result = ($"ID: {reader.GetString(0)}       DATE: {reader.GetString(1)}       QUANTITY: {reader.GetString(2)}");
                 }
             }
         }
