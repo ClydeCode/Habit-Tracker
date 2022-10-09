@@ -37,7 +37,7 @@ internal class Habit_Tracker
         }
     }
 
-    internal void handleRead()
+    private void handleRead()
     {
         foreach (string result in database.Read()) { Console.WriteLine(result); }
     }
