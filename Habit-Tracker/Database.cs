@@ -43,8 +43,10 @@ class Database
         }
     }
 
-    internal void Read()
+    internal string Read()
     {
+        string result = "";
+
         using (var connection = new SqliteConnection(connectionString))
         {
             using (var command = connection.CreateCommand())
@@ -58,10 +60,11 @@ class Database
 
                 while (reader.Read())
                 {
-                    Console.WriteLine($"ID: {reader.GetString(0)}. DATE: {reader.GetString(1)} Quantity: {reader.GetString(2)}");
+                    result = ($"ID: {reader.GetString(0)}. DATE: {reader.GetString(1)} Quantity: {reader.GetString(2)}");
                 }
             }
         }
+        return result;
     }
 
     internal void Update(int id, string date, int quantity)
