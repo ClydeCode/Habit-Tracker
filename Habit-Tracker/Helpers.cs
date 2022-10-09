@@ -21,7 +21,8 @@ class Helpers
     internal static DateTime getDate()
     {
         DateTime date = DateTime.Now;
-        return date.Date;
+
+        return date;
     }
 }
 
