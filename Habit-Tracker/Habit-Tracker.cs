@@ -24,22 +24,17 @@ internal class Habit_Tracker
                 break;
             case 1:
                 Console.Clear();
-                Console.WriteLine(database.Read());
-                break;
-            case 2:
-                Console.Clear();
-                Console.WriteLine("Type: <Date>, <Quantity>");
-                break;
-            case 3:
-
-                break;
-            case 4:
-
+                handleRead();
                 break;
             default:
                 Console.WriteLine("Wrong Input!");
                 break;
         }
+    }
+
+    internal void handleRead()
+    {
+        foreach (string result in database.Read()) { Console.WriteLine(result); }
     }
 }
 
