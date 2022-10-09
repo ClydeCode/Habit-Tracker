@@ -14,5 +14,32 @@ internal class Habit_Tracker
         Console.WriteLine("Type 3 To Delete Record");
         Console.WriteLine("Type 4 To Update Record");
     }
+
+    internal void navigate(int number)
+    {
+        switch (number)
+        {
+            case 0:
+                Environment.Exit(0);
+                break;
+            case 1:
+                Console.Clear();
+                Console.WriteLine(database.Read());
+                break;
+            case 2:
+                Console.Clear();
+                Console.WriteLine("Type: <Date>, <Quantity>");
+                break;
+            case 3:
+
+                break;
+            case 4:
+
+                break;
+            default:
+                Console.WriteLine("Wrong Input!");
+                break;
+        }
+    }
 }
 
