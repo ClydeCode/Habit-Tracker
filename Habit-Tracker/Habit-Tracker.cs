@@ -54,7 +54,7 @@ internal class Habit_Tracker
     {
         DateTime date = Helpers.getDate();
 
-        Console.WriteLine("Type: <Quantity>");
+        Console.WriteLine("Type [QUANTITY]:");
         int quantity = Helpers.getInt();
 
         database.Insert(date, quantity);
