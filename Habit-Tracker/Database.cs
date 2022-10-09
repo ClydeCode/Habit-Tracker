@@ -15,7 +15,7 @@ class Database
                 command.CommandText =
                     @"CREATE TABLE IF NOT EXISTS stepsPerDay (
 						Id INTEGER PRIMARY KEY AUTOINCREMENT,
-						Date TEXT,
+						Date DATE,
 						Quantity INTEGER
 					)";
 
@@ -24,7 +24,7 @@ class Database
         }
     }
 
-    internal void Insert(string date, int quantity)
+    internal void Insert(DateTime date, int quantity)
     {
         using (var connection = new SqliteConnection(connectionString))
         {
@@ -43,9 +43,9 @@ class Database
         }
     }
 
-    internal string Read()
+    internal List<string> Read()
     {
-        string result = "";
+        List<string> list = new List<string>();
 
         using (var connection = new SqliteConnection(connectionString))
         {
@@ -60,11 +60,11 @@ class Database
 
                 while (reader.Read())
                 {
-                    result = ($"ID: {reader.GetString(0)}       DATE: {reader.GetString(1)}       QUANTITY: {reader.GetString(2)}");
+                    list.Add($"ID: {reader.GetString(0)}       DATE: {reader.GetString(1)}       QUANTITY: {reader.GetString(2)}");
                 }
             }
         }
-        return result;
+        return list;
     }
 
     internal void Update(int id, string date, int quantity)
