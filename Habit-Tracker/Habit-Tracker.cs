@@ -31,6 +31,10 @@ internal class Habit_Tracker
                 Console.Clear();
                 handleRead();
                 break;
+            case 2:
+                Console.Clear();
+                handleInsert();
+                break;
             default:
                 Console.WriteLine("Wrong Input!");
                 break;
@@ -40,6 +44,16 @@ internal class Habit_Tracker
     private void handleRead()
     {
         foreach (string result in database.Read()) { Console.WriteLine(result); }
+    }
+
+    private void handleInsert()
+    {
+        DateTime date = Helpers.getDate();
+
+        Console.WriteLine("Type: <Quantity>");
+        int quantity = Helpers.getInt();
+
+        database.Insert(date, quantity);
     }
 }
 
