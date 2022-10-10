@@ -5,6 +5,8 @@ class Helpers
     {
         int number = -1;
 
+        Console.WriteLine("\n");
+
         while (number < 0)
         {
             string input = Console.ReadLine();
