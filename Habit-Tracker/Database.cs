@@ -95,7 +95,7 @@ class Database
         return null;
     }
 
-    internal void Update(int id, string date, int quantity)
+    internal void Update(int id, int quantity)
     {
         using (var connection = new SqliteConnection(connectionString))
         {
@@ -104,7 +104,7 @@ class Database
                 connection.Open();
 
                 command.CommandText =
-                    $@"UPDATE stepsPerDay SET Date='{date}', Quantity={quantity} WHERE Id={id}";
+                    $@"UPDATE stepsPerDay SET Quantity={quantity} WHERE Id={id}";
 
                 command.ExecuteNonQuery();
             }
