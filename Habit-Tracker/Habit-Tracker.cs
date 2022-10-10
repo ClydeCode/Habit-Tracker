@@ -65,8 +65,7 @@ internal class Habit_Tracker
         Console.WriteLine("Type [ID]: ");
         int id = Helpers.getInt();
 
-        if (!recordExist(id)) Console.WriteLine("This record doesn't exist");
-        else database.Delete(id);
+        if (recordExist(id)) database.Delete(id);
     }
 
     private bool recordExist(int id)
