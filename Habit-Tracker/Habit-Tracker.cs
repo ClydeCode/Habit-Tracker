@@ -39,6 +39,10 @@ internal class Habit_Tracker
                 Console.Clear();
                 handleDelete();
                 break;
+            case 4:
+                Console.Clear();
+                handleUpdate();
+                break;
             default:
                 Console.WriteLine("Wrong Input!");
                 break;
@@ -66,6 +70,21 @@ internal class Habit_Tracker
         int id = Helpers.getInt();
 
         if (recordExist(id)) database.Delete(id);
+    }
+
+    private void handleUpdate()
+    {
+        Console.WriteLine("Type [ID]: ");
+        int id = Helpers.getInt();
+        int quantity;
+
+        if (recordExist(id))
+        {
+            Console.WriteLine("Type [QUANTITY]: ");
+            quantity = Helpers.getInt();
+
+            database.Update(id, quantity);
+        }
     }
 
     private bool recordExist(int id)
