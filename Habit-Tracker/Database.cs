@@ -43,7 +43,7 @@ class Database
         }
     }
 
-    internal List<string> ReadAllRecords()
+    internal List<string> Read()
     {
         List<string> list = new List<string>();
 
@@ -67,7 +67,7 @@ class Database
         return list;
     }
 
-    internal string Read(int id)
+    internal string ReadById(int id)
     {
         using (var connection = new SqliteConnection(connectionString))
         {
