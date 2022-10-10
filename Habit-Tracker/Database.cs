@@ -43,7 +43,7 @@ class Database
         }
     }
 
-    internal List<string> Read()
+    internal List<string> ReadAllRecords()
     {
         List<string> list = new List<string>();
 
