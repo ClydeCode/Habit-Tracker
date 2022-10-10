@@ -9,11 +9,11 @@ class Helpers
         {
             string input = Console.ReadLine();
 
-            if (int.TryParse(input, out int proper_input)) { number = proper_input; }
-            else
+            if (int.TryParse(input, out int proper_input) && Convert.ToInt32(input) >= 0) 
             {
-                Console.WriteLine("Wrong Input! Try again...");
+                number = proper_input; 
             }
+            else Console.WriteLine("Wrong Input! Try again...");
         }
         return number;
     }
