@@ -67,6 +67,34 @@ class Database
         return list;
     }
 
+    internal string Read(int id)
+    {
+        using (var connection = new SqliteConnection(connectionString))
+        {
+            using (var command = connection.CreateCommand())
+            {
+                connection.Open();
+
+                command.CommandText =
+                    $@"SELECT * FROM stepsPerDay WHERE Id={id}";
+
+                SqliteDataReader reader = command.ExecuteReader();
+
+                try
+                {
+                    reader.Read();
+
+                    return reader.GetString(0);
+                } 
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                }
+            }
+        }
+        return null;
+    }
+
     internal void Update(int id, string date, int quantity)
     {
         using (var connection = new SqliteConnection(connectionString))
