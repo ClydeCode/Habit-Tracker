@@ -1,7 +1,7 @@
 ﻿
 class Helpers
 {
-    internal static int getInt()
+    internal static int GetInt()
     {
         int number = -1;
 
@@ -20,7 +20,7 @@ class Helpers
         return number;
     }
 
-    internal static DateTime getDate()
+    internal static DateTime GetDate()
     {
         DateTime date = DateTime.Now;
 

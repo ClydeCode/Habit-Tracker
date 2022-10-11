@@ -2,9 +2,9 @@
 
 while (true)
 {
-    habit_tracker.showMenu();
+    habit_tracker.ShowMenu();
 
-    habit_tracker.navigate(Helpers.getInt());
+    habit_tracker.Navigate(Helpers.GetInt());
 
     Console.WriteLine("\nPress ENTER to Continue...");
     Console.ReadLine();

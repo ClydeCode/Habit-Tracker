@@ -1,14 +1,14 @@
 ﻿
 internal class Habit_Tracker
 {
-    private Database database = new Database();
+    private readonly Database database = new();
 
     internal Habit_Tracker()
     {
         database.CreateDatabase();
     }
 
-    internal void showMenu()
+    internal void ShowMenu()
     {
         Console.Clear();
         Console.WriteLine("\nMain Menu");
@@ -20,7 +20,7 @@ internal class Habit_Tracker
         Console.WriteLine("Type 4 To Update Record");
     }
 
-    internal void navigate(int number)
+    internal void Navigate(int number)
     {
         switch (number)
         {
@@ -29,19 +29,19 @@ internal class Habit_Tracker
                 break;
             case 1:
                 Console.Clear();
-                handleRead();
+                HandleRead();
                 break;
             case 2:
                 Console.Clear();
-                handleInsert();
+                HandleInsert();
                 break;
             case 3:
                 Console.Clear();
-                handleDelete();
+                HandleDelete();
                 break;
             case 4:
                 Console.Clear();
-                handleUpdate();
+                HandleUpdate();
                 break;
             default:
                 Console.WriteLine("Wrong Input!");
@@ -49,45 +49,45 @@ internal class Habit_Tracker
         }
     }
 
-    private void handleRead()
+    private void HandleRead()
     {
         foreach (string result in database.Read()) { Console.WriteLine(result); }
     }
 
-    private void handleInsert()
+    private void HandleInsert()
     {
-        DateTime date = Helpers.getDate();
+        DateTime date = Helpers.GetDate();
 
         Console.WriteLine("Type [QUANTITY]:");
-        int quantity = Helpers.getInt();
+        int quantity = Helpers.GetInt();
 
         database.Insert(date, quantity);
     }
 
-    private void handleDelete()
+    private void HandleDelete()
     {
         Console.WriteLine("Type [ID]: ");
-        int id = Helpers.getInt();
+        int id = Helpers.GetInt();
 
-        if (recordExist(id)) database.Delete(id);
+        if (RecordExist(id)) database.Delete(id);
     }
 
-    private void handleUpdate()
+    private void HandleUpdate()
     {
         Console.WriteLine("Type [ID]: ");
-        int id = Helpers.getInt();
+        int id = Helpers.GetInt();
         int quantity;
 
-        if (recordExist(id))
+        if (RecordExist(id))
         {
             Console.WriteLine("Type [QUANTITY]: ");
-            quantity = Helpers.getInt();
+            quantity = Helpers.GetInt();
 
             database.Update(id, quantity);
         }
     }
 
-    private bool recordExist(int id)
+    private bool RecordExist(int id)
     {
         string result = database.ReadById(id);
 
